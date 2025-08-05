@@ -1,0 +1,20 @@
+
+
+```{r include=TRUE,}
+CAP <- "Design Ground Motions in terms of peak ground accelerations PGA [%s] for return periods ranging from %s to %s [yr] Spectral ordinates were obtained assuming site conditions with Vs30 ranging from  %s to %s [m/s]. (p=%s)<br>References: **gem2020(L)**: GEM PNG 2020 Hazard Model with linear ergodic site response model. **gem2020(NL):** GEM PNG 2020 Hazard Model with non-linear ergodic site response model from Stewart et al [-@Stewart2020]<br><br>"
+Vs30_TARGET <- Vs30_gmdp
+TR_TARGET = TR_gmdp
+PSA_Units = "g" 
+ID_TARGET = c("gem2020(L)","gem2020(NL)")
+root <- here::here()          
+
+```
+
+```{r ,include=knitr::is_html_output(),eval=knitr::is_html_output()}
+#| label: tbl-pga1
+#| tbl-cap: !expr CAP  |> sprintf(PSA_Units,min(TR_TARGET), max(TR_TARGET), min(Vs30_TARGET), max(Vs30_TARGET), "mean")
+p_TARGET <- "mean"
+
+source(file.path(root,"psha/_tbl/PGA.R"))
+TBL
+```

@@ -1,0 +1,9 @@
+Field,Legend
+latitude,"Latitude"
+longitude,"Longitude"
+mag,"Magnitude"
+depth,"Hypocentral Depth"
+time,"Date"
+place,"Location"
+event_id,"ID"
+
