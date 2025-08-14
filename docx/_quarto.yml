@@ -1,0 +1,43 @@
+params:
+  client: "AngloGold Ashanti Iduapriem Ltd"
+  client_short: "AAIL"
+  latitude: 5.243527
+  longitude: -2.048097
+  location: "Tarkwa, Western Region, Ghana"
+  site: "Greenfields Tailings Storage Facility (GTSF)"
+  SRK: "SRK Consulting (Ghana) Ltd (SRK)"
+  SRK_short: "SRK"
+  mineral: "Gold"
+project:
+  type: book
+  output-dir: _publish
+  post-render:
+    - >
+      python psha/py/fix_docx.py
+      --reference-docx psha/styles/reference.docx
+      --fallback-para-style "Body Text"
+      --map-paragraph "Normal=Body Text"
+      --appendix-h1 "Appendix A"
+      --appendix-h1 "Appendix B"
+      --appx-h1-style "Appendix A Appx1 Cover"
+      --appx-h2-style "Appendix A.1 Appx2 Cover"
+# No appendices. AEP 10,000 
+book:
+  title: "Probabilistic Seismic Hazard Assessment"
+  subtitle: "Iduapriem Gold Mine, Ghana"
+  chapters:
+    - index.qmd
+
+
+bibliography: psha/_bib/references.bib
+format:
+  docx:
+    reference-doc: psha/styles/reference.docx
+toc-title: Table of Contents
+crossref:
+  fig-title: Fig.
+  tbl-title: Table
+  eq-title: Equation
+  eq-prefix: eq.
+  tbl-prefix: tbl.
+  fig-prefix: fig.

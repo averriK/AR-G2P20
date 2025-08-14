@@ -1,0 +1,47 @@
+
+```{r include=FALSE, echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE}
+
+root <- here::here()
+
+
+# Establece la localización en español para las fechas
+# Puedes ajustar "es_ES.UTF-8" a tu sistema; en Windows suele ser "Spanish_Spain"
+Sys.setlocale("LC_TIME", "es_ES.UTF-8")
+
+if (file.exists(file.path(root,"map/epicenters.csv")) & file.exists(file.path(root,"map/index.html"))) {
+  
+  EVENTS <- data.table::fread(file.path(root,"map/epicenters.csv"))
+  EVENTS <- EVENTS[Repi <= 1000, .(
+      Location = place,
+      Mw = mag,
+      Date = as.Date(time),
+      Lat = latitude,
+      Lon = longitude,
+      Rhyp = round(sqrt(Repi^2 + depth^2), 0)
+  )]
+  
+  MCE.Mw <- EVENTS[order(-Mw, Date)]
+  MCE.Rhyp <- EVENTS[order(Rhyp, Date)]
+  ###
+  # Identify unique events (row indices) for each category
+  ix_maxMw <- which.max(MCE.Mw$Mw)
+  ix_minRhyp <- which.min(MCE.Rhyp$Rhyp)
+  
+  # For robust comparison, get unique event IDs or (Date, Lat, Lon, Mw)
+  key_Mw <- paste(MCE.Mw[ix_maxMw]$Date, MCE.Mw[ix_maxMw]$Lat, MCE.Mw[ix_maxMw]$Lon, MCE.Mw[ix_maxMw]$Mw)
+  key_Rhyp <- paste(MCE.Rhyp[ix_minRhyp]$Date, MCE.Rhyp[ix_minRhyp]$Lat, MCE.Rhyp[ix_minRhyp]$Lon, MCE.Rhyp[ix_minRhyp]$Mw)
+  
+  same_Mw_Rhyp <- key_Mw == key_Rhyp
+  TEXT = ""
+  if (same_Mw_Rhyp) {    
+    TEXT <- glue::glue("De acuerdo con el catálogo instrumental del USGS, el **evento de mayor magnitud y más cercano** al sitio del proyecto**, fue registrado en {format(MCE.Mw[ix_maxMw]$Date, '%B, %Y')} ({MCE.Mw[ix_maxMw]$Location} ), con una magnitud de momento $M_w$ {MCE.Mw[ix_maxMw]$Mw} y una distancia al sitio del proyecto de {MCE.Mw[ix_maxMw]$Rhyp} km ({MCE.Rhyp[ix_minRhyp]$Location}).")
+  } else {
+    TEXT <- glue::glue("De acuerdo con el catálogo de sismicidad instrumental de terremotos de USGS, el **evento de mayor magnitud** registrado dentro de un radio de 1.000 km del sitio, ocurrió en {format(MCE.Mw[ix_maxMw]$Date, '%B, %Y')}, con una magnitud de momento $M_w$ {MCE.Mw[ix_maxMw]$Mw}, con un hipocentro localizado a unos {MCE.Mw[ix_maxMw]$Rhyp} km del sitio del proyecto ({MCE.Mw[ix_maxMw]$Location}). El **evento más cercano** al sitio del proyecto registrado a la fecha, ocurrió en {format(MCE.Rhyp[ix_minRhyp]$Date, '%B, %Y')}, con una magnitud de momento $M_w$ {MCE.Rhyp[ix_minRhyp]$Mw} y con hipocentro localizado a unos {MCE.Rhyp[ix_minRhyp]$Rhyp} km del sitio del proyecto  ({MCE.Rhyp[ix_minRhyp]$Location}).")
+  } 
+  
+  TEXT = paste0("Distribución espacial de eventos sísmicos registrados a la fecha, dentro de un radio de 1000 km del sitio del proyecto, compilada de los catálogos del USGS y el ISC.",TEXT)
+} else {
+  TEXT = "Distribución espacial de eventos sísmicos registrados a la fecha, dentro de un radio de 1000 km del sitio del proyecto, compilada de los catálogos del USGS y el ISC. Cada evento reporta la distancia epicentral al sitio del proyecto, la profundidad estimada del hipocentro, los tensores de momento (empleados para caracterizar el tipo de ruptura), la magnitud de momento y la localización del evento sísmico."
+}
+
+```

@@ -14,59 +14,10 @@
   <component name="RMarkdownSettings">
     <option name="renderProfiles">
       <map>
-        <entry key="file://$PROJECT_DIR$/summary/_slides/PGA.qmd">
-          <value>
-            <RMarkdownRenderProfile>
-              <option name="outputDirectoryUrl" value="file://$PROJECT_DIR$/summary/_slides" />
-            </RMarkdownRenderProfile>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/summary/_slides/UHS.qmd">
-          <value>
-            <RMarkdownRenderProfile>
-              <option name="outputDirectoryUrl" value="file://$PROJECT_DIR$/summary/_slides" />
-            </RMarkdownRenderProfile>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/summary/_slides/cover.qmd">
-          <value>
-            <RMarkdownRenderProfile>
-              <option name="outputDirectoryUrl" value="file://$PROJECT_DIR$/summary/_slides" />
-            </RMarkdownRenderProfile>
-          </value>
-        </entry>
         <entry key="file://$PROJECT_DIR$/summary/index.qmd">
           <value>
             <RMarkdownRenderProfile>
               <option name="outputDirectoryUrl" value="file://$PROJECT_DIR$/summary" />
-            </RMarkdownRenderProfile>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/summary/psha/_chapters/mce.qmd">
-          <value>
-            <RMarkdownRenderProfile>
-              <option name="outputDirectoryUrl" value="file://$PROJECT_DIR$/summary/psha/_chapters" />
-            </RMarkdownRenderProfile>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/summary/psha/_chapters/seismicity.qmd">
-          <value>
-            <RMarkdownRenderProfile>
-              <option name="outputDirectoryUrl" value="file://$PROJECT_DIR$/summary/psha/_chapters" />
-            </RMarkdownRenderProfile>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/summary/psha/_fig/UHS_TR_m.qmd">
-          <value>
-            <RMarkdownRenderProfile>
-              <option name="outputDirectoryUrl" value="file://$PROJECT_DIR$/summary/psha/_fig" />
-            </RMarkdownRenderProfile>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/summary/psha/_text/events.qmd">
-          <value>
-            <RMarkdownRenderProfile>
-              <option name="outputDirectoryUrl" value="file://$PROJECT_DIR$/summary/psha/_text" />
             </RMarkdownRenderProfile>
           </value>
         </entry>
