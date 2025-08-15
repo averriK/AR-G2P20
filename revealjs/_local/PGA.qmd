@@ -2,10 +2,10 @@
 
 ```{r include=TRUE,}
 CAP <- "Design Ground Motions in terms of peak ground accelerations PGA [%s] for return periods ranging from %s to %s [yr] Spectral ordinates were obtained assuming site conditions with Vs30 ranging from  %s to %s [m/s]. (p=%s)<br>References: **gem2020(L)**: GEM PNG 2020 Hazard Model with linear ergodic site response model. **gem2020(NL):** GEM PNG 2020 Hazard Model with non-linear ergodic site response model from Stewart et al [-@Stewart2020]<br><br>"
-Vs30_TARGET <- Vs30_gmdp
-TR_TARGET = c(475,2475)
+Vs30_TARGET <- 760
+TR_TARGET = TR_gmdp
 PSA_Units = "g" 
-ID_TARGET = c("gem2020(L)","gem2020(NL)")
+ID_TARGET = "gem"
 root <- here::here()          
 
 ```

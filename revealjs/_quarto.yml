@@ -1,6 +1,11 @@
 project:
   type: default
   output-dir: _publish
+  execute-dir: project
+  post-render:
+    - 'python psha/py/fix_docx.py --reference-docx psha/styles/reference.docx --fallback-para-style "Body Text" --map-paragraph "Normal=Body Text" --map-paragraph "Block Text=Quote"'
+    - 'python psha/py/normalize_docx.py --list-bullet-style "List Bullet" --list-number-style "List Number" --appendix-pattern "^Appendix [A-Z]\\b" --appx-h1-style "Appx 1 Cover" --appx-h2-style "Appx 2 Cover"'
+
 engine: knitr
 jupyter: python3
 bibliography: psha/_bib/references.bib
@@ -17,6 +22,8 @@ execute:
   keep-md: false
   freeze: false
 format:
+  docx:
+    reference-doc: psha/styles/reference.docx
   revealjs:
     output-file: index.html
     theme: simple

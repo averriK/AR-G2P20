@@ -11,16 +11,11 @@ params:
 project:
   type: book
   output-dir: _publish
+  execute-dir: project
   post-render:
-    - >
-      python psha/py/fix_docx.py
-      --reference-docx psha/styles/reference.docx
-      --fallback-para-style "Body Text"
-      --map-paragraph "Normal=Body Text"
-      --appendix-h1 "Appendix A"
-      --appendix-h1 "Appendix B"
-      --appx-h1-style "Appendix A Appx1 Cover"
-      --appx-h2-style "Appendix A.1 Appx2 Cover"
+    - 'python psha/py/fix_docx.py --reference-docx psha/styles/reference.docx --fallback-para-style "Body Text" --map-paragraph "Normal=Body Text" --map-paragraph "Block Text=Quote"'
+    - 'python psha/py/normalize_docx.py --list-bullet-style "List Bullet" --list-number-style "List Number" --appendix-pattern "^Appendix [A-Z]\\b" --appx-h1-style "Appx 1 Cover" --appx-h2-style "Appx 2 Cover"'
+
 # No appendices. AEP 10,000 
 book:
   title: "Probabilistic Seismic Hazard Assessment"

@@ -1,14 +1,11 @@
 
 
 ```{r ,include=TRUE,eval=TRUE,message=FALSE,warning=FALSE}
-CAP <-  "Uniform Hazard Spectra (UHS) for maximum horizontal spectral accelerations Sa(Tn) in [g] with 5%% critical damping assuming annual exceedance probabilities of 1/%d [1/yr]. Spectral ordinates were calibrated for site conditions with Vs30 ranging from %d to %d [m/s]. <br>References: **gem2020(L)**: GEM PNG 2020 Hazard Model with linear ergodic site response model. **gem2020(NL):** GEM PNG 2020 Hazard Model with non-linear ergodic site response model from Stewart et al [-@Stewart2020]"
+CAP <-  "Uniform Hazard Spectra (UHS) for maximum horizontal spectral accelerations Sa(Tn) in [g] with 5%% critical damping assuming annual exceedance probabilities of 1/%d [1/yr]. Spectral ordinates were calibrated for site conditions with Vs30 ranging from %d to %d [m/s]. Conceptual PSHA model based on @GEM2023PNG. "
 
-Vs30_TARGET <-Vs30_gmdp
-ID_TARGET <- c("gem2020(NL)","gem2020(L)")
-ID_max <-"gem2020(NL)"
 p_TARGET <-  "mean"
 root <- here::here()          
-Sa_LOG = FALSE
+
 
 ```
 
@@ -16,7 +13,15 @@ Sa_LOG = FALSE
 #| label: fig-uhs475
 #| fig-cap: !expr CAP  |> sprintf(475,min(Vs30_TARGET),max(Vs30_TARGET))
 TR_TARGET <- 475
-source(file.path(root,"psha/_fig/UHS_m.R"))
+Vs30_TARGET <- Vs30_gmdp
+ID_TARGET <- c("gem","sdLnSaFC1")
+
+Sa_LOG <- FALSE
+Tn_LOG <- FALSE
+source(file.path(root,"_local/UHS.R"))
 PLOT
 ```
+
+
+
 

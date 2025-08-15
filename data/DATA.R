@@ -29,7 +29,7 @@ IDm <- paste0("U", seq(1, length(uscs)))
 # Newmark Displacement Units
 Dn_units <- "mm"
 # Target Newmark Displacement (for kmax/kh) in Dn_units
-Da_TARGET <- c(10, 100, 1000) # [mm]
+Da_gmdp <- c(10, 100, 1000) # [mm]
 # Service Levels
 Vref_gmdp <- 760
 TR_gmdp <- c(475, 975, 1975, 2475, 4975, 9975)
