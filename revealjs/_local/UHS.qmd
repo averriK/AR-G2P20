@@ -14,7 +14,7 @@ root <- here::here()
 #| fig-cap: !expr CAP  |> sprintf(475,min(Vs30_TARGET),max(Vs30_TARGET))
 TR_TARGET <- 475
 Vs30_TARGET <- Vs30_gmdp
-ID_TARGET <- c("gem","sdLnSaFC1")
+ID_TARGET <- c("gem")
 
 Sa_LOG <- FALSE
 Tn_LOG <- FALSE

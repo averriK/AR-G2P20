@@ -8,8 +8,8 @@ listing: false
 
 ```{r setup,echo=FALSE,include=TRUE,eval=TRUE,message=FALSE}
 root <- normalizePath(file.path(here::here(), ".."))
-psha_path <- file.path(root,"docx", "psha")
-yaml_path <- file.path(root,"docx")
+psha_path <- file.path(root,"revealjs", "psha")
+yaml_path <- file.path(root,"revealjs")
 data_path <- file.path(root, "data")
 source(file.path(psha_path,"R","run.R"))
 # ID_gmdp <- "max"
@@ -22,13 +22,11 @@ source(file.path(psha_path,"R","run.R"))
 
 {{< include _local/cover.qmd >}}
 
-## <br>PNG Regional Hazard
+## <br> PSHA Ground Motions
 
 > **ATC/W response:** *We are not aware of any published studies that indicate a PGA in excess of 0.90g for an AEP of 1:475 at the TSF location. Please provide the above-mentioned published study that supports this claim.*
 
 The seismic sources referenced by K92 are the **Ramu–Markham Fault System (RMFS)**, located within 15 km of the tailings facility and capable of full-segment ruptures with magnitudes Mw 8.1–8.3 [@Wallace2021], and the **New Britain (NB) subduction interface**, known to have produced megathrust events with magnitudes ranging from Mw 8.0 to 8.8 [@USGS2007]. Published studies reporting PGA values close to 0.90g for the region include those by [@Ghasemi2020] and the GEM seismic hazard model documentation for Papua New Guinea [@GEM2023], available online here: ([PDF](https://hazard.openquake.org/gem/pdf/png-report.pdf)). The K92 comment stands.
-
-## <br>PNG Regional Hazard
 
 > **ATC/W response:** *Unless we find more convincing data that $M_{\max}$ for the faults surrounding the site considered in this analysis are higher, we believe that the PSHA results developed by ATCW (2020) are still valid. Therefore, we assess that there is no need to reassess the seismic hazard at the site at present.*
 
@@ -36,15 +34,7 @@ The seismic sources referenced by K92 are the **Ramu–Markham Fault System (RMF
 An independent probabilistic seismic hazard analysis was conducted by SRK at the TSF coordinates using the Papua New Guinea seismic hazard logic tree developed by the Global Earthquake Model [@GEM2023]. The internal details of the ATC/W logic tree — including source‐zone definitions, recurrence parameters, GMPE selection, and their assigned weights — are not publicly disclosed. Technical documentation for the ground‐motion equations, source models, and logic trees in the GEM 2020 hazard model is available onlinein the following  [URL](https://www.globalquakemodel.org/product/papua-new-guinea-hazard).
 
 
-The independent SRK analysis produced a peak ground acceleration (PGA) of 0.63 g for reference rock ($Vs_{30} \approx 760$ m/s) at an annual exceedance probability (AEP) of 1/475. This result is consistent with the range of 0.70–1.10 g reported by the GEM 2023 Global Seismic Hazard Map for the Markham–Kainantu region. For the same return period, ATC/W adopted a PGA of 0.31 g, which is approximately 50.8% lower than the independent result and also below the GEM 2023 range (0.59–0.89 g).
-
-For the Operating Basis Earthquake (1/2,000 yr), the ATC/W 2020 PSHA adopts a PGA of 0.53 g for reference rock ($Vs_{30} \approx 760$ m/s). The GEM 2023 model reports a PGA of 0.98 g for the same conditions, representing a 45.9% higher value than that used by ATC/W.
-
-
-
-
-
-A benchmark ergodic, nonlinear site-response analysis performed at the TSF coordinates indicates also that peak ground acceleration (PGA) values for softer soils (Site Class D) are approximately 40% lower than those computed for rock conditions (Site Class BC). The differences become more pronounced at longer return periods. These results indicate significant nonlinear amplification effects at the TSF location for alluvial soils and larger (SEE/MCE) seismic events.
+The independent SRK analysis produced a peak ground acceleration (PGA) of 0.63 g for reference rock ($Vs_{30} \approx 760$ m/s) at an annual exceedance probability (AEP) of 1/475. This result is consistent with the range of 0.70–1.10 g reported by the GEM 2023 Global Seismic Hazard Map for the Markham–Kainantu region. For the same return period, ATC/W adopted a PGA of 0.31 g, which is approximately 50.8% lower than the independent result and also below the GEM 2023 range (0.59–0.89 g). For the Operating Basis Earthquake (1/2,000 yr), the ATC/W 2020 PSHA adopts a PGA of 0.53 g for reference rock ($Vs_{30} \approx 760$ m/s). The GEM 2023 model reports a PGA of 0.98 g for the same conditions, representing a 45.9% higher value than that used by ATC/W.
 
 
 
@@ -66,7 +56,9 @@ The ATC/W dynamic deformation analysis considered two seismic loading levels: th
 
 The deterministic maximum credible earthquake (MCE) scenario adopted by ATC/W yields a mean peak ground acceleration (PGA) of $0.896,g$ at $T=0.01,\text{s}$, effectively $0.90,g$ when rounded. This value is essentially the same as the PGA from the probabilistic seismic hazard analysis (PSHA) for a 10,000‐year return period, $0.89,g$.
 
-Given that the ATC/W deterministic MCE at $T=0.01,\text{s}$ is $0.896,g$ (effectively $0.90,g$) and essentially matches the project’s 10{,}000-year PSHA PGA of $0.89,g$ [@ATCW2020], a modest downward bias in the MCE is plausible but is not expected to approach the larger discrepancy observed at the 1/475 PSHA level between ATC/W and GEM-based benchmarks [@ATCW2020; @GEM2023PNG]. The reason is structural: the deterministic MCE is defined by a single controlling scenario that maximizes ground motion at the period of interest and is therefore not affected by 50/50 averaging across alternative seismotectonic models; any residual bias would primarily stem from the chosen GMPE suite and weights, which influence both DSHA and PSHA but act through ground-motion scaling rather than source omission effects [@McGuire2004; @Bommer2015]. Consequently, if the GMPE set underpredicts motions for the controlling large-magnitude, short-to-moderate distance scenario, the MCE could be somewhat underestimated, but the effect would be expected to be materially smaller than the gap identified for the 1/475 PSHA comparison.
+Given that the ATC/W deterministic MCE at $T=0.01,\text{s}$ is $0.896,g$ (effectively $0.90,g$) and essentially matches the project’s 10{,}000-year PSHA PGA of $0.89,g$ [@ATCW2020], a modest downward bias in the MCE is plausible but is not expected to approach the larger discrepancy observed at the 1/475 PSHA level between ATC/W and GEM-based benchmarks [@ATCW2020; @GEM2023PNG]. The reason is structural: the deterministic MCE is defined by a single controlling scenario that maximizes ground motion at the period of interest and is therefore not affected by 50/50 averaging across alternative seismotectonic models; any residual bias would primarily stem from the chosen GMPE suite and weights, which influence both DSHA and PSHA but act through ground-motion scaling rather than source omission effects [@McGuire2004; @Bommer2015].
+
+Consequently, if the GMPE set underpredicts motions for the controlling large-magnitude, short-to-moderate distance scenario, it can be assumed that the MCE could be somewhat underestimated, but the effect would be expected to be materially smaller than the gap identified for the 1/475 PSHA comparison.
 
 ## <br>Ground Motion Prediction Equations (GMPE)
 
@@ -74,9 +66,9 @@ Given that the ATC/W deterministic MCE at $T=0.01,\text{s}$ is $0.896,g$ (effect
 
 ATC/W states that the seismic hazard analysis incorporates GMPEs for both shallow crustal (NGA-West2) and subduction-zone earthquakes (BC Hydro). Given the proximity of significant seismic sources—including the Ramu–Markham Fault System (RMFS) capable of large crustal earthquakes, and the New Britain subduction megathrust capable of producing Mw $\geq$ 8.0 events—it is critical to confirm that the weighting of these GMPE sets adequately represents regional seismic hazard conditions.
 
-While NGA-West2 models have been extensively validated globally for active shallow crustal regions [@Abrahamson2014; @Boore2014; @Campbell2014], and the BC Hydro subduction GMPE is based on global subduction data [@Abrahamson2016; @Abrahamson2018; @Parker2020], explicit verification of their applicability to Papua New Guinea conditions through residual analyses using regional seismic records is recommended.
+While NGA-West2 models have been extensively validated globally for active shallow crustal regions [@Abrahamson2014; @Boore2014; @Campbell2014], and the BC Hydro subduction GMPE is based on global subduction data [@Abrahamson2016; @Abrahamson2018; @Parker2020], explicit verification of their applicability to Papua New Guinea conditions through residual analyses using regional seismic records is recommended. However, the author is unaware of the current availability of sufficient strong-motion records from bedrock conditions near these seismic sources, which may pose challenges for conducting such residual analyses.
 
-However, the author is unaware of the current availability of sufficient strong-motion records from bedrock conditions near these seismic sources, which may pose challenges for conducting such residual analyses. A practical first step could involve reviewing available studies, including those by Ghasemi et al. [-@Ghasemi2020], to determine whether appropriate validation or calibration has already been performed or whether additional investigations are necessary.
+A practical first step could involve reviewing available studies, including those by Ghasemi et al. [-@Ghasemi2020], to determine whether appropriate validation or calibration has already been performed or whether additional investigations are necessary.
 
 
 
@@ -85,9 +77,9 @@ However, the author is unaware of the current availability of sufficient strong-
 
 Two complete alternative seismogenic source models have been applied in Papua New Guinea PSHA: (i) the Geoscience Australia PNG models developed by Ghasemi et al. [@Ghasemi2016; @Ghasemi2020; @GEM2023PNG], which underpin the GEM PNG hazard model and are generally regarded as state of practice, and (ii) the DIM–ASIA (ASIA‐1) model by Dimas and Gibson [@DimasGibson2016], a 3D representation of crustal, subduction‐interface, and intraslab sources. In the 2020 ATC/W study, these two full models were assigned equal weight (50% each) in the logic tree.
 
-Epistemic uncertainty is typically addressed by branching on key parameters—$a$– and $b$–values, slip rates, segmentation, geometry, and $M_{max}$—within a single comprehensive model [@McGuire2004; @NRC2012; @Bommer2012]. Mean hazard is obtained by weighting exceedance rates or probabilities, not by averaging intensity measures such as PGA or $S_a(T)$. When a branch omits a physically credible source, its contribution to the mean is proportionally reduced, which can bias hazard estimates.
+Epistemic uncertainty is typically addressed by branching on key parameters—$a$– and $b$–values, slip rates, segmentation, geometry, and $M_{max}$—within a single comprehensive model [@McGuire2004; @NRC2012; @Bommer2012]. When a branch omits a physically credible source, its contribution to the mean is proportionally reduced, which can bias hazard estimates. SSHAC guidance cautions that logic‐tree branches should represent complete alternative scientific interpretations; undisputed sources should not be alternately omitted in a competing full model but instead included in a comprehensive model with parameter‐level branching [@NRC2012; @Bommer2012]. Assigning equal weight to two complete models where one omits a credible contributor effectively halves its influence on the mean hazard.
 
-SSHAC guidance cautions that logic‐tree branches should represent complete alternative scientific interpretations; undisputed sources should not be alternately omitted in a competing full model but instead included in a comprehensive model with parameter‐level branching [@NRC2012; @Bommer2012]. Assigning equal weight to two complete models where one omits a credible contributor effectively halves its influence on the mean hazard. A defensible approach for this site is to adopt one comprehensive PNG source model that includes all credible contributors and then represent lack of consensus on key parameters (e.g., $M_{max}$, $b$‐values/recurrence) through logic‐tree branches. This approach aligns with recent PNG regional practice [@Ghasemi2020; @GEM2023].
+A defensible approach for this site is to adopt one comprehensive PNG source model that includes all credible contributors and then represent lack of consensus on key parameters (e.g., $M_{max}$, $b$‐values/recurrence) through logic‐tree branches. This approach aligns with recent PNG regional practice [@Ghasemi2020; @GEM2023].
 
 ## <br>Vertical Ground Motions
 
@@ -96,8 +88,6 @@ SSHAC guidance cautions that logic‐tree branches should represent complete alt
 Routine practice typically focuses dynamic deformation analyses on horizontal ground motions for earth and rockfill dams subjected to moderate-to-strong earthquakes [@USSD2022]. However, FEMA [-@FEMA2015] guidelines indicate that vertical accelerations near active faults can be significant and may even exceed horizontal accelerations. Although neither ANCOLD nor USSD universally requires including vertical motions, both recommend explicitly evaluating vertical ground motions near large faults, either through sensitivity checks or as separate load cases [@USSD2022; @ANCOLD2019].
 
 Considering the proximity of the RMFS, capable of producing earthquakes with $M_{w} \geq 7.5$, explicitly incorporating vertical ground motions into dynamic deformation analyses is appropriate for load cases associated specifically with RMFS seismic events. For these load cases, ensuring realistic vertical spectra and vertical-to-horizontal (V/H) ratios from the ATC/W seismic hazard analysis requires careful validation of the selected GMPEs and their weighting for vertical predictions. On the contrary, vertical ground motions unrelated with the RMFS scenario should not be included.
-
-## <br>Vertical Ground Motions
 
 > **ATC/W response:** *An example from a recent case history of earth and rockfill dams subjected to high horizontal and vertical acceleration is the 156-m high Zipingpu dam in China. It was subjected to horizontal and vertical accelerations of 2.0g. No significant damage was observed (Ishihara, 2012).*
 
@@ -118,8 +108,6 @@ The Zipingpu Dam example cited by ATC/W represents only a single case history an
 
 
 * ATC/W's internal logic-tree parameters, including source-zone definitions, recurrence parameters, GMPE selections, and assigned weights, are not publicly disclosed, limiting transparency. In contrast, the GEM (2023) hazard model is both publicly available and peer-reviewed, incorporating updates to key parameters such as $M_{max}$ compared to earlier versions (e.g., Ghasemi et al., 2016). Greater alignment with transparent, regionally validated models would substantially reduce uncertainty and enhance the reliability of seismic hazard inputs for engineering design [@ATCW2020; @GEM2023PNG; @Ghasemi2020].
-
-* The impact of nonlinear site-response effects on softer soils (Site Class D) significantly reduces PGA values relative to rock conditions (approximately 40% lower), with the effect becoming more pronounced at longer return periods. Explicitly accounting for these nonlinear amplification characteristics at the TSF location is critical for accurately evaluating dynamic response and seismic risk at higher seismic loading levels such as the SEE/MCE.
 
 :::{.content-hidden when-format='docx'}
 ## <br>Appendix: Historical Events
